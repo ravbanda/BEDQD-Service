@@ -347,7 +347,7 @@ public class InternalControlsDao {
 			while(dbConnection.resultset.next()){
 				ecdeCntL2SrcSysLegalEntityBean = new ECDECntL2SrcSysLegalEntityModel();
 				
-				ecdeCntL2SrcSysLegalEntityBean.setLevel2ProcessDQP(dbConnection.resultset.getString("Level2_Process_DQP"));
+				ecdeCntL2SrcSysLegalEntityBean.setLevel2ProcessDqp(dbConnection.resultset.getString("Level2_Process_DQP"));
 				ecdeCntL2SrcSysLegalEntityBean.setSourceSystem(dbConnection.resultset.getString("SOURCE_SYSTEM"));
 				ecdeCntL2SrcSysLegalEntityBean.setSourceLOB(dbConnection.resultset.getString("SOURCE_LOB"));
 				ecdeCntL2SrcSysLegalEntityBean.setEcdeCnt(dbConnection.resultset.getString("ECDE_CNT"));
@@ -492,7 +492,7 @@ public class InternalControlsDao {
 				impactScoreL1L2SrcLegalEntityBean.setConfirmity(dbConnection.resultset.getString("CONFIRMITY"));
 				impactScoreL1L2SrcLegalEntityBean.setValidity(dbConnection.resultset.getString("VALIDITY"));
 				impactScoreL1L2SrcLegalEntityBean.setAccuracy(dbConnection.resultset.getString("ACCURACY"));
-				impactScoreL1L2SrcLegalEntityBean.setSourceSystem(dbConnection.resultset.getString("SOURCE_SYSTEM"));
+				impactScoreL1L2SrcLegalEntityBean.setSourceSytem(dbConnection.resultset.getString("SOURCE_SYSTEM"));
 				impactScoreL1L2SrcLegalEntityBean.setSourceLOB(dbConnection.resultset.getString("LOB"));
 				impactScoreL1L2SrcLegalEntityBean.setEcde(dbConnection.resultset.getString("ECDE"));
 				impactScoreL1L2SrcLegalEntityBean.setCompleteness(dbConnection.resultset.getString("COMPLETENESS")); 

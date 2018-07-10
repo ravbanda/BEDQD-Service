@@ -133,8 +133,7 @@ public class DataQualityDao {
 			dbConnection.close_Connection(connection);
 		}
 		return dQScoreBean;
-	}
-	
+	}	
 	
 	@SuppressWarnings("static-access")
 	public EcdeWithDQModel getEcdeWithDQDetails()throws Exception {
@@ -553,6 +552,10 @@ public class DataQualityDao {
 		prepStmt.setTimestamp(2,  new java.sql.Timestamp(endDateRange.getTime()));
 		prepStmt.setTimestamp(3,  new java.sql.Timestamp(startDateRange.getTime()));
 		prepStmt.setTimestamp(4,  new java.sql.Timestamp(endDateRange.getTime()));
+		
+		System.out.println("getOpenDQIssues ..!");
+		System.out.println(prepStmt.toString());
+		
 		ResultSet resultSet=prepStmt.executeQuery();
 		
 		/*int flag = dbConnection.data_Retrive(sqlQuery , connection);
@@ -987,7 +990,7 @@ public class DataQualityDao {
 	public OpenDQPrioritySummary getOpenDQPrioritySummary() throws Exception{
 		OpenDQPrioritySummary openDQPrioritySummary = new OpenDQPrioritySummary();
 		Map<String,List<OpenDQPrioritySummaryDetail>> openDQPrioritySummaryMap = new HashMap<String,List<OpenDQPrioritySummaryDetail>>();
-		openDQPrioritySummary.setPenDQPrioritySummaryMap(openDQPrioritySummaryMap);
+		openDQPrioritySummary.setOpenDQPrioritySummaryMap(openDQPrioritySummaryMap);
 		
 		String sqlQuery = "SELECT  "+
 							" LEGAL_ENTITY, "+
@@ -1066,7 +1069,9 @@ public class DataQualityDao {
 					if(CollectionUtils.isEmpty(openDQPrioritySummaryMap.get(bucfName))){
 						List<OpenDQPrioritySummaryDetail> openDQPrioritySummaryDetailLst = new ArrayList<OpenDQPrioritySummaryDetail>();
 						openDQPrioritySummaryDetailLst.add(openDQPrioritySummaryDetail);
-						openDQPrioritySummaryMap.put(bucfName, openDQPrioritySummaryDetailLst);
+						if(!bucfName.equalsIgnoreCase("") || null != bucfName){
+							openDQPrioritySummaryMap.put(bucfName, openDQPrioritySummaryDetailLst);
+						}
 					}
 					else{
 						openDQPrioritySummaryMap.get(bucfName).add(openDQPrioritySummaryDetail);
@@ -1090,7 +1095,7 @@ public class DataQualityDao {
 		
 		OpenDQPrioritySummary openDQPrioritySummary = new OpenDQPrioritySummary();
 		Map<String,List<OpenDQPrioritySummaryDetail>> openDQPrioritySummaryMap = new HashMap<String,List<OpenDQPrioritySummaryDetail>>();
-		openDQPrioritySummary.setPenDQPrioritySummaryMap(openDQPrioritySummaryMap);
+		openDQPrioritySummary.setOpenDQPrioritySummaryMap(openDQPrioritySummaryMap);
 		
 		String sqlQuery = "SELECT DISTINCT VBUCF.BUCF_NAME, V_IS_AGNG_DTL.AGING_BUCKET, "+
 							" SUM(CASE WHEN TO_DATE(V_IS_AGNG_DTL.DT_ISS, 'MM-DD-YYYY')>=TO_DATE('07-01-2014', 'MM-DD-YYYY') and TO_DATE(V_IS_AGNG_DTL.DT_ISS, 'MM-DD-YYYY') <= TO_DATE('09-30-2014', 'MM-DD-YYYY') "+ 
@@ -1124,7 +1129,9 @@ public class DataQualityDao {
 					if(CollectionUtils.isEmpty(openDQPrioritySummaryMap.get(bucfName))){
 						List<OpenDQPrioritySummaryDetail> dqDimensionLst = new ArrayList<OpenDQPrioritySummaryDetail>();
 						dqDimensionLst.add(openDQPrioritySummaryDetail);
-						openDQPrioritySummaryMap.put(bucfName, dqDimensionLst);
+						if(!bucfName.equalsIgnoreCase("") || null != bucfName){
+							openDQPrioritySummaryMap.put(bucfName, dqDimensionLst);
+						}
 					}
 					else{
 						openDQPrioritySummaryMap.get(bucfName).add(openDQPrioritySummaryDetail);
@@ -1148,7 +1155,7 @@ public class DataQualityDao {
 		
 		OpenDQPrioritySummary openDQPrioritySummary = new OpenDQPrioritySummary();
 		Map<String,List<OpenDQPrioritySummaryDetail>> openDQPrioritySummaryMap = new HashMap<String,List<OpenDQPrioritySummaryDetail>>();
-		openDQPrioritySummary.setPenDQPrioritySummaryMap(openDQPrioritySummaryMap);
+		openDQPrioritySummary.setOpenDQPrioritySummaryMap(openDQPrioritySummaryMap);
 		
 		String sqlQuery = "SELECT DISTINCT VBUCF.BUCF_NAME, V_IS_AGNG_DTL.AGING_BUCKET, "+
 							" SUM(CASE WHEN TO_DATE(V_IS_AGNG_DTL.DT_ISS, 'MM-DD-YYYY')>=TO_DATE('10-01-2014', 'MM-DD-YYYY') and TO_DATE(V_IS_AGNG_DTL.DT_ISS, 'MM-DD-YYYY') <= TO_DATE('12-31-2014', 'MM-DD-YYYY') "+ 
@@ -1182,7 +1189,9 @@ public class DataQualityDao {
 					if(CollectionUtils.isEmpty(openDQPrioritySummaryMap.get(bucfName))){
 						List<OpenDQPrioritySummaryDetail> dqDimensionLst = new ArrayList<OpenDQPrioritySummaryDetail>();
 						dqDimensionLst.add(openDQPrioritySummaryDetail);
-						openDQPrioritySummaryMap.put(bucfName, dqDimensionLst);
+						if(!bucfName.equalsIgnoreCase("") || null != bucfName){
+							openDQPrioritySummaryMap.put(bucfName, dqDimensionLst);
+						}
 					}
 					else{
 						openDQPrioritySummaryMap.get(bucfName).add(openDQPrioritySummaryDetail);

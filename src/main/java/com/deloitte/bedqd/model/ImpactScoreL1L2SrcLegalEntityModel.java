@@ -3,7 +3,7 @@ package com.deloitte.bedqd.model;
 public class ImpactScoreL1L2SrcLegalEntityModel extends GenericModel {
 
 	private String dimension;
-	private String sourceSystem;
+	private String sourceSytem;
 	private String sourceLOB;
 	private String level1ProcessDqp;
 	private String ecde;
@@ -13,11 +13,12 @@ public class ImpactScoreL1L2SrcLegalEntityModel extends GenericModel {
 	private String validity;
 	private String accuracy;
 	
-	public String getSourceSystem() {
-		return sourceSystem;
+	
+	public String getSourceSytem() {
+		return sourceSytem;
 	}
-	public void setSourceSystem(String sourceSystem) {
-		this.sourceSystem = sourceSystem;
+	public void setSourceSytem(String sourceSytem) {
+		this.sourceSytem = sourceSytem;
 	}
 	public String getSourceLOB() {
 		return sourceLOB;

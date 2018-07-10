@@ -13,7 +13,9 @@ public class MeasureOrRemidateDataQuantityModel {
 	private OpenDQPrioritySummary openDQPriorityDtlsLowPr;
 	
 	private OpenDQPrioritySummary openDQPriorityDtlsHighPr;
-
+	
+	private DQScoreModel dQScoreModel;
+	
 	
 
 	public OpenDQPrioritySummary getOpenDQPriorityDtlsLowPr() {
@@ -55,8 +57,12 @@ public class MeasureOrRemidateDataQuantityModel {
 	public void setIssueTypeDetails(OpenDQIssuesTypeDetails issueTypeDetails) {
 		this.issueTypeDetails = issueTypeDetails;
 	}
-	
-	
-	
 
+	public DQScoreModel getdQScoreModel() {
+		return dQScoreModel;
+	}
+
+	public void setdQScoreModel(DQScoreModel dQScoreModel) {
+		this.dQScoreModel = dQScoreModel;
+	}
 }

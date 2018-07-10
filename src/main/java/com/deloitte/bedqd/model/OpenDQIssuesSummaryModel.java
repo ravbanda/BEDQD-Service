@@ -9,6 +9,7 @@ public class OpenDQIssuesSummaryModel {
 	private String priorQuarter;
 	private String currentQuarter;
 	private String change;
+	
 	public String getLegalEntity() {
 		return legalEntity;
 	}

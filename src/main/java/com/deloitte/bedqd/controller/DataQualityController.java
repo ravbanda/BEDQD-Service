@@ -36,8 +36,8 @@ public class DataQualityController {
 		try 
 		{
 			SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-			startDateRange=format.parse("01/01/2010");
-			endDateRange=format.parse("28/01/2018");
+			startDateRange=format.parse("03/01/2014");
+			endDateRange=format.parse("05/30/2014");
 			
 			System.out.println("Inside getKeyHighlightsEndPoint :: start date " + startDateRange + "  end date  " + endDateRange);
 		

@@ -6,6 +6,7 @@ public class DQDimension {
 	private String priorQuarter;
 	private String currentQuarter;
 	private String yearQtr;
+	
 	public String getDqDimension() {
 		return dqDimension;
 	}

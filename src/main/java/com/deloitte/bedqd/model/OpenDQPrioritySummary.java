@@ -5,16 +5,14 @@ import java.util.Map;
 
 public class OpenDQPrioritySummary {
 	
-	private Map<String,List<OpenDQPrioritySummaryDetail>> penDQPrioritySummaryMap;
+	private Map<String,List<OpenDQPrioritySummaryDetail>> openDQPrioritySummaryMap;
 
-	public Map<String, List<OpenDQPrioritySummaryDetail>> getPenDQPrioritySummaryMap() {
-		return penDQPrioritySummaryMap;
+	public Map<String, List<OpenDQPrioritySummaryDetail>> getOpenDQPrioritySummaryMap() {
+		return openDQPrioritySummaryMap;
 	}
 
-	public void setPenDQPrioritySummaryMap(Map<String, List<OpenDQPrioritySummaryDetail>> penDQPrioritySummaryMap) {
-		this.penDQPrioritySummaryMap = penDQPrioritySummaryMap;
+	public void setOpenDQPrioritySummaryMap(
+			Map<String, List<OpenDQPrioritySummaryDetail>> openDQPrioritySummaryMap) {
+		this.openDQPrioritySummaryMap = openDQPrioritySummaryMap;
 	}
-	
-	
- 
 }

@@ -2,18 +2,19 @@ package com.deloitte.bedqd.model;
 
 public class ECDECntL2SrcSysLegalEntityModel extends GenericModel {
 
-	private String level2ProcessDQP;
+	private String level2ProcessDqp;
 	private String sourceSystem;
 	private String sourceLOB;
 	private String ecdeCnt;
 	private String ecdeRcrdsTstd;
 	
 	
-	public String getLevel2ProcessDQP() {
-		return level2ProcessDQP;
+	
+	public String getLevel2ProcessDqp() {
+		return level2ProcessDqp;
 	}
-	public void setLevel2ProcessDQP(String level2ProcessDQP) {
-		this.level2ProcessDQP = level2ProcessDQP;
+	public void setLevel2ProcessDqp(String level2ProcessDqp) {
+		this.level2ProcessDqp = level2ProcessDqp;
 	}
 	public String getSourceSystem() {
 		return sourceSystem;

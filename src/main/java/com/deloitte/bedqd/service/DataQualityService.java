@@ -111,12 +111,16 @@ public class DataQualityService {
 			dao = new DataQualityDao();
 			measureRemediateDataQuality = new MeasureOrRemidateDataQuantityModel();
 			
+			DQScoreModel dQScoreModel = dao.getDQScoreDetails();
 			List<OpenDQIssuesSummaryModel> issueSummary = dao.getOpenDQIssuesSummaryModel();
 			OpenDQIssuesTypeDetails issueTypeDetails = dao.getOpenDQIssuesTypeDetails();
 			OpenDQPrioritySummary openDQPrioritySummary = dao.getOpenDQPrioritySummary(); 
 			OpenDQPrioritySummary openDQPriorityDtlsLowPr = dao.openDQPriorityDtlsLowPr();
 			OpenDQPrioritySummary openDQPriorityDtlsHighPr = dao.openDQPriorityDtlsHighPr();
 			
+			if(null != dQScoreModel){
+				measureRemediateDataQuality.setdQScoreModel(dQScoreModel);
+			}
 			if(null != issueSummary) {
 				measureRemediateDataQuality.setIssueSummaryLst(issueSummary);
 			}
