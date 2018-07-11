@@ -29,15 +29,14 @@ public class DataQualityController {
 	}
 	
 	@RequestMapping(value="/keyHighlights", method = RequestMethod.GET)
-	public Object getKeyHighlightsEndPoint(){
-		//@RequestParam("startDate") String startDate,@RequestParam("endDate") String endDate
+	public Object getKeyHighlightsEndPoint(@RequestParam("startDate") String startDate,@RequestParam("endDate") String endDate){
 		Date startDateRange = null;
 		Date endDateRange = null;
 		try 
 		{
 			SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-			startDateRange=format.parse("03/01/2014");
-			endDateRange=format.parse("05/30/2014");
+			startDateRange=format.parse(startDate);
+			endDateRange=format.parse(endDate);
 			
 			System.out.println("Inside getKeyHighlightsEndPoint :: start date " + startDateRange + "  end date  " + endDateRange);
 		

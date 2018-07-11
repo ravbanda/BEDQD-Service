@@ -64,8 +64,13 @@ public class DataQualityService {
 			keyHighlights = new KeyHighlightsModel();
 			List<HighPriorityDQIssues> listOfHPDQIssues = dao.getListOfHPDQIssues();
 			List<DQMoniteringStats> listOfDQMoniteringStats = dao.getDQMoniteringStats();
-			OpenDQIssues openDQIssues = dao.getOpenDQIssues(startDate,endDate);
-			DataQualityMonitering dataQualityMonitering =  dao.getDataMonitering(startDate,endDate);
+			
+			//BEDQD Drools part code changes 
+			/*OpenDQIssues openDQIssues = dao.getOpenDQIssues(startDate,endDate);
+			DataQualityMonitering dataQualityMonitering =  dao.getDataMonitering(startDate,endDate);*/
+			
+			OpenDQIssues openDQIssues = dao.getOpenDQIssues();
+			DataQualityMonitering dataQualityMonitering =  dao.getDataMonitering();
 			DQRIAndDQPScores dQRIAndDQPScores = dao.getDQRIAndDQPScores();
 			
 			if(null != listOfDQMoniteringStats){ keyHighlights.setListOfDQMoniteringStats(listOfDQMoniteringStats);	}

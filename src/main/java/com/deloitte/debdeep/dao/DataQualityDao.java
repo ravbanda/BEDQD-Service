@@ -38,6 +38,8 @@ public class DataQualityDao {
 	SQLConnection dbConnection = new SQLConnection();
 	int docEntry;
 	
+	private static final String EXCEPTION_STR = "Exception has occured while fetching details for";
+	
 	@SuppressWarnings("static-access")
 	public BcdeWithDQModel getBcdeWithDQDetails()throws Exception {
 		Connection connection  = dbConnection.connection();
@@ -543,18 +545,12 @@ public class DataQualityDao {
 							           "  THEN ISSUE_ID ELSE 0 END "+
 							    "  ) AS Current_Quarter "+
 							" FROM V_DQ_ISSUE ";
-
-
-		
 		
 		PreparedStatement prepStmt=connection.prepareStatement(sqlQuery);
 		prepStmt.setTimestamp(1, new java.sql.Timestamp(startDateRange.getTime()));
 		prepStmt.setTimestamp(2,  new java.sql.Timestamp(endDateRange.getTime()));
 		prepStmt.setTimestamp(3,  new java.sql.Timestamp(startDateRange.getTime()));
 		prepStmt.setTimestamp(4,  new java.sql.Timestamp(endDateRange.getTime()));
-		
-		System.out.println("getOpenDQIssues ..!");
-		System.out.println(prepStmt.toString());
 		
 		ResultSet resultSet=prepStmt.executeQuery();
 		
@@ -899,7 +895,7 @@ public class DataQualityDao {
 			}
 		}
 		catch(Exception e){
-			
+			System.out.println("Exception has occured while fetching details for openDQPriorityDtlsLowPr");
 		}
 		finally{
 			if(connection != null)
@@ -976,7 +972,7 @@ public class DataQualityDao {
 			}
 		}
 		catch(Exception e){
-			
+			System.out.println(EXCEPTION_STR +" getOpenDQIssuesTypeDetails");
 		}
 		finally{
 			if(connection != null)
@@ -1080,7 +1076,7 @@ public class DataQualityDao {
 			}
 		}
 		catch(Exception e){
-			
+			System.out.println(EXCEPTION_STR + "getOpenDQPrioritySummary");
 		}
 		finally{
 			if(connection != null)
@@ -1140,7 +1136,7 @@ public class DataQualityDao {
 			}
 		}
 		catch(Exception e){
-			
+			System.out.println(EXCEPTION_STR + "openDQPriorityDtlsHighPr");
 		}
 		finally{
 			if(connection != null)
@@ -1200,7 +1196,7 @@ public class DataQualityDao {
 			}
 		}
 		catch(Exception e){
-			System.out.println("Exception has occured while");
+			System.out.println(EXCEPTION_STR +" openDQPriorityDtlsLowPr");
 		}
 		finally{
 			if(connection != null)
